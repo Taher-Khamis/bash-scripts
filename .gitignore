@@ -1,0 +1,18 @@
+# Generated data and script output
+data/
+output/
+tmp/
+*.log
+*_report.txt
+
+# Local environment and credentials
+.env
+*.env
+*.pem
+*.key
+secrets/
+
+# Editor and OS noise
+.vscode/
+*.swp
+*~
