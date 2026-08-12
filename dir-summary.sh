@@ -2,6 +2,7 @@
 
 # Prints a summary of a directory: file count, total size,
 # and the three largest files, searching recursively.
+# Reports "No files found" if the directory contains no files.
 #
 # Total size is disk usage as reported by du, which reflects
 # space consumed on disk rather than summed file content.

@@ -32,11 +32,11 @@ fi
 dir=$1
 mode=${2:-}
 
-if [[ -n "$mode" && "$mode" != "--apply" && "$mode" != "--dry-run" ]]; then 
+if [[ -n "$mode" && "$mode" != "--apply" && "$mode" != "--dry-run" ]]; then
     echo "Error: unknown option: $mode" >&2
     echo "Usage: $0 <directory> [--apply|--dry-run]" >&2
     exit 1
-fi 
+fi
 
 for f in "$dir"/*; do
     [[ -f "$f" ]] || continue
@@ -56,10 +56,10 @@ for f in "$dir"/*; do
         continue
     fi
 
-    if [[ "$mode" == "--apply" ]]; then 
+    if [[ "$mode" == "--apply" ]]; then
         mv "$f" "$dir/$newname"
         echo "renamed: $name -> $newname"
-    else   
+    else
         echo "$name -> $newname"
     fi
 done
