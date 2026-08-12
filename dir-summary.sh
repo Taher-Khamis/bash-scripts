@@ -31,6 +31,10 @@ echo "The file count is: $count"
 size=$(du -sh "$1" | cut -f 1)
 echo "The total size of this directory is: $size"
 
-largest_files=$(find "$1" -type f -print0 | xargs -0 du -h | sort -rh | head -n 3)
-echo "The three largest files are: "
-echo "$largest_files"
+largest_files=$(find "$1" -type f -print0 | xargs -0 -r du -h | sort -rh | head -n 3)
+if [[ -z "$largest_files" ]]; then
+  echo "No files found."
+else
+  echo "The three largest files are: "
+  echo "$largest_files"
+fi

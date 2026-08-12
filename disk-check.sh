@@ -8,7 +8,8 @@
 # Exit codes: 0 below warning, 1 at or above warning,
 #             2 at or above critical, 3 bad arguments
 #
-# Known limitation: thresholds are not validated as numbers.
+# Known limitation: thresholds are not validated as numbers,
+# and no check is made that warning is lower than critical.
 # Non-numeric input causes the script to fail rather than
 # produce a wrong answer.
 
@@ -19,7 +20,7 @@ if [[ $# -ne 3 ]]; then
     exit 3 
 fi
 
-usage=$(df -h "$1" | awk '{print $5}' | tail -n 1 | tr -d '%')
+usage=$(df -Ph "$1" | awk '{print $5}' | tail -n 1 | tr -d '%')
 warning=$2
 critical=$3
 
