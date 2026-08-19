@@ -16,8 +16,8 @@
 set -euo pipefail
 
 if [[ $# -ne 3 ]]; then
-    echo "Error: expected 3 arguments, got $#" >&2
-    exit 3 
+  echo "Error: expected 3 arguments, got $#" >&2
+  exit 3
 fi
 
 usage=$(df -Ph "$1" | awk '{print $5}' | tail -n 1 | tr -d '%')
@@ -25,12 +25,12 @@ warning=$2
 critical=$3
 
 if [[ $usage -ge $critical ]]; then
-    echo "Critical threshold exceeded, current disk usage is: $usage%"
-    exit 2
+  echo "Critical threshold exceeded, current disk usage is: $usage%"
+  exit 2
 elif [[ $usage -ge $warning ]]; then
-    echo "Warning threshold exceeded, current disk usage is: $usage%"
-    exit 1
+  echo "Warning threshold exceeded, current disk usage is: $usage%"
+  exit 1
 else
-    echo "System disk usage is: $usage%"
-    exit 0
+  echo "System disk usage is: $usage%"
+  exit 0
 fi

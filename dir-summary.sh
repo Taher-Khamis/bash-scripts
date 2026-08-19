@@ -16,14 +16,14 @@
 set -euo pipefail
 
 if [[ $# -ne 1 ]]; then
-    echo "Error: expected 1 argument, got $#" >&2
-    echo "Usage: $0 <directory>" >&2
-    exit 1
+  echo "Error: expected 1 argument, got $#" >&2
+  echo "Usage: $0 <directory>" >&2
+  exit 1
 fi
 
 if [[ ! -d "$1" ]]; then
-    echo "not a directory: $1" >&2
-    exit 1
+  echo "not a directory: $1" >&2
+  exit 1
 fi
 
 count=$(find "$1" -type f | wc -l)
